@@ -18,24 +18,24 @@ class CContents extends Component {
             img[label]=cname;
             return img;
         },{});
-
+    //this.changeMsg=this.changeMsg.bind(this);
     }
 
-    changeMsg(){
+    changeMsg=()=>{
         this.setState({msg: 'Właśnie jesteś uczestnikiem kursu React, gratulacje !'});
         console.log('Przycisk został naciśnięty');
     }
     render(){
-       // const items =[];
-       // for(let i=0;i<this.txtData().count; i++){
-       //     let value =this.txtData().text[i];
-       //     items.push(
-       //         <div className="contentsFlex">
-       //             <img className="contntsFlexImg" src={this.imgs['img'+(i+1)]} alt=""/>
-       //           <p className='contentsFlexTxt'>{value}</p>
-       //         </div>
-       //     );
-       // }
+        /*const items =[];
+        for(let i=0;i<this.txtData().count; i++){
+            let value =this.txtData().text[i];
+            items.push(
+                <div className="contentsFlex">
+                    <img className="contntsFlexImg" src={this.imgs['img'+(i+1)]} alt=""/>
+                  <p className='contentsFlexTxt'>{value}</p>
+                </div>
+            );
+        }*/
         const tabData=this.txtData2().data;
         const items = tabData.map((item)=>(
             <div id={`"div${item.id}"`} className="contentsFlex">
@@ -47,7 +47,7 @@ class CContents extends Component {
             <div className='contentsDivClass'>
                 {items}
                 <h1>{this.state.msg}</h1>
-                <button onClick={()=>this.changeMsg()}>Kliknij, aby poznać tajemnicę</button>
+                <button onClick={this.changeMsg}>Kliknij, aby poznać tajemnicę</button>
             </div>
         )
     }
